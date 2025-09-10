@@ -16,12 +16,11 @@ app.post("/", async (req, res) => {
     console.log("Nhận từ Pub/Sub:", payload);
 
     // Gọi Apps Script (đặt link thật vào đây)
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbxxx/exec";
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbykQ5HbmwwM0ySLwny63wRM4dEy0x380qtqIDVuw9jrMDTuQrhYW5iSOI0xaf-myYtv/exec";
     const response = await fetch(scriptUrl, {
-      method: "POST",
+      method: "GET",
       redirect: "follow", // Quan trọng để auto follow redirect
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      headers: { "Content-Type": "application/json" }
     });
 
     const result = await response.text();
